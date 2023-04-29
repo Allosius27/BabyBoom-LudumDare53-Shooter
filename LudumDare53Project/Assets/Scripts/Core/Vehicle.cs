@@ -8,11 +8,17 @@ public class Vehicle : MonoBehaviour
 
     private Rigidbody _rb;
 
-    private Vector3 _direction;
 
     private List<Baby> _currentBabies = new List<Baby>();
 
     private bool _isFull;
+
+    #endregion
+
+    #region Properties
+
+    public Vector3 direction { get; set; }
+
 
     #endregion
 
@@ -30,16 +36,16 @@ public class Vehicle : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
 
-        int rnd = AllosiusDevUtilities.Utils.AllosiusDevUtils.RandomGeneration(0, 100);
-        if(rnd <= 50)
-        {
+        //int rnd = AllosiusDevUtilities.Utils.AllosiusDevUtils.RandomGeneration(0, 100);
+        //if(rnd <= 50)
+        //{
 
-            _direction = Vector3.forward;
-        }
-        else
-        {
-            _direction = Vector3.back;
-        }
+        //    _direction = Vector3.forward;
+        //}
+        //else
+        //{
+        //    _direction = Vector3.back;
+        //}
     }
 
     private void FixedUpdate()
@@ -59,7 +65,7 @@ public class Vehicle : MonoBehaviour
     private void Move()
     {
         float moveStep = _vehicleData.speed * Time.deltaTime;
-        _rb.velocity = _direction * moveStep;
+        _rb.velocity = direction * moveStep;
     }
 
     public void QuitScreen()

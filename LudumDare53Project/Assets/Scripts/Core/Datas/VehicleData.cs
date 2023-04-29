@@ -14,5 +14,7 @@ public class VehicleData : SerializedScriptableObject
     [HideIfGroup("sizeInfinite")]
     [SerializeField] public int size = 2;
 
+    [SerializeField] public Vehicle vehiclePrefab;
+
     #endregion
 }
