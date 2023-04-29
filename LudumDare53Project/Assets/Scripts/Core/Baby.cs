@@ -28,6 +28,8 @@ public class Baby : MonoBehaviour
 
     public bool isShooted { get; set; }
 
+    public bool isInMovement { get; set; }
+
     #endregion
 
     #region Events
@@ -37,6 +39,8 @@ public class Baby : MonoBehaviour
     #region UnityInspector
 
     [Required] [SerializeField] private BabyData _babyData;
+
+    [Required] [SerializeField] private Animator _animator;
 
     #endregion
 
@@ -53,6 +57,7 @@ public class Baby : MonoBehaviour
 
         _rb = GetComponent<Rigidbody>();
         _col = GetComponent<Collider>();
+        _animator = GetComponent<Animator>();
 
         speed = _babyData.babySpeed;
     }
@@ -69,6 +74,11 @@ public class Baby : MonoBehaviour
                 isShooted = false;
             }
         } 
+
+        if(_animator != null)
+        {
+            _animator.SetBool("IsInMovement", isInMovement);
+        }
     }
 
     public void BabyDeath()

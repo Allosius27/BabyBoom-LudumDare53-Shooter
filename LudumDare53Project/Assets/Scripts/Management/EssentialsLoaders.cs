@@ -14,6 +14,7 @@ public class EssentialsLoaders : MonoBehaviour
     [SerializeField] private SceneLoader sceneLoader;
     [SerializeField] private UICanvasManager uiCanvasManager;
     [SerializeField] private GameStateManager gameStateManager;
+    [SerializeField] private GameManager gameManager;
 
     private void Awake()
     {
@@ -40,6 +41,11 @@ public class EssentialsLoaders : MonoBehaviour
         if(GameStateManager.Instance == null)
         {
             Instantiate(gameStateManager);
+        }
+
+        if (GameManager.Instance == null)
+        {
+            Instantiate(gameManager);
         }
     }
 }
