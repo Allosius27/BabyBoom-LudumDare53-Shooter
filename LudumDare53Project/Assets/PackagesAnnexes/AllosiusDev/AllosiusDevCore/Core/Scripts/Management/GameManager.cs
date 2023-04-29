@@ -48,10 +48,10 @@ namespace AllosiusDevCore
         {
             Debug.Log("Reset Game");
             SetScore(0);
-            currentMultiplier = 1;
-            currentTimer = gameData.partyDuration;
-            currentSavedBabiesCount = 0;
-            currentOupsBabiesCount = 0;
+            SetMultiplier(1);
+            SetTimer(gameData.partyDuration);
+            SetSavedBabiesCount(0);
+            SetOupsBabiesCount(0);
         }
 
         public void ChangeScore(int amount)
