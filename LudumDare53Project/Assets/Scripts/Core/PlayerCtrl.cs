@@ -43,7 +43,7 @@ public class PlayerCtrl : MonoBehaviour
             float rotation = Mathf.Atan2(difference.x, difference.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
-            if (Input.GetMouseButtonDown(0) && _canShoot)
+            if (Input.GetMouseButton(0) && _canShoot)
             {
                 //float distance = -difference.magnitude;
                 //Vector3 direction = difference / distance;

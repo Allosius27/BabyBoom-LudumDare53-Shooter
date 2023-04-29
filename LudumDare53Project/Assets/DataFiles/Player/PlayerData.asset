@@ -21,5 +21,5 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  babySpeed: 50
+  shootingCooldownTime: 0.2
   babyPrefab: {fileID: 4110570976354494647, guid: 75fc5f37f8c27f24db6d4c0fa6a3ed20, type: 3}
