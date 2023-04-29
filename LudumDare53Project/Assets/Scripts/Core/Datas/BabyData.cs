@@ -21,9 +21,15 @@ public class BabyData : SerializedScriptableObject
 
     #region UnityInspector
 
+    [Header("Stats")]
+
     [SerializeField] public float babySpeed = 50.0f;
 
     [SerializeField] public FeedbacksData babyDeathFeedbacks;
+
+    [Header("Score")]
+
+    [SerializeField] public int deathPointsScoreAdded = -4;
 
     #endregion
 

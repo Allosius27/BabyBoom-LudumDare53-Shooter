@@ -60,7 +60,7 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
 
     public void UpdateMultiplier()
     {
-        _multiplierAmountText.text = GameManager.Instance.currentMultiplier.ToString();
+        _multiplierAmountText.text = GameManager.Instance.currentMultiplier.ToString(".0");
     }
 
     public void UpdateTimer()

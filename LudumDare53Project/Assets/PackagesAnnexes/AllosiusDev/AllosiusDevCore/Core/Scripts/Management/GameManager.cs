@@ -16,7 +16,7 @@ namespace AllosiusDevCore
 
         public int score { get; protected set; }
 
-        public int currentMultiplier { get; protected set; } = 1;
+        public float currentMultiplier { get; protected set; } = 1;
 
         public float currentTimer { get; protected set; }
 
@@ -65,12 +65,12 @@ namespace AllosiusDevCore
             SetScoreEvent?.Invoke();
         }
 
-        public void ChangeMultiplier(int amount)
+        public void ChangeMultiplier(float amount)
         {
             SetMultiplier(currentMultiplier + amount);
         }
 
-        private void SetMultiplier(int amount)
+        private void SetMultiplier(float amount)
         {
             currentMultiplier = amount;
             SetMultiplierEvent?.Invoke();

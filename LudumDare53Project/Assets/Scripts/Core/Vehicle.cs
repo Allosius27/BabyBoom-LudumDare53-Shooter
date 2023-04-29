@@ -1,3 +1,4 @@
+using AllosiusDevCore;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -89,11 +90,23 @@ public class Vehicle : MonoBehaviour
             baby.transform.localPosition = Vector3.zero;
             baby.transform.localEulerAngles = Vector3.zero;
 
+            if(_vehicleData.scorePointsAdded > 0)
+            {
+                GameManager.Instance.ChangeScore((int)(_vehicleData.scorePointsAdded * GameManager.Instance.currentMultiplier));
+
+            }
+            else
+            {
+                GameManager.Instance.ChangeScore((int)(_vehicleData.scorePointsAdded));
+
+            }
+
             _isFull = CheckIsFull();
 
             if(_isFull)
             {
-
+                GameManager.Instance.ChangeScore((int)(_vehicleData.scorePointsToFull * GameManager.Instance.currentMultiplier));
+                GameManager.Instance.ChangeMultiplier(_vehicleData.scoreMultiplierBonusToFull);
             }
         }
         else

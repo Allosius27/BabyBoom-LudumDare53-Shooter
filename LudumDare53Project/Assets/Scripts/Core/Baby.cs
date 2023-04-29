@@ -83,6 +83,8 @@ public class Baby : MonoBehaviour
 
     public void BabyDeath()
     {
+        Debug.Log("Baby Death");
+        GameManager.Instance.ChangeScore(_babyData.deathPointsScoreAdded);
         _feedbacksReader.ReadFeedback(_babyData.babyDeathFeedbacks);
         Destroy(gameObject);
     }
