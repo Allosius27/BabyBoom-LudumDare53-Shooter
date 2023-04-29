@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEditor;
 
 namespace AllosiusDevUtilities.Core
 {
@@ -41,6 +42,12 @@ namespace AllosiusDevUtilities.Core
 
         #endregion
 
+        #region UnityInspector
+
+        [SerializeField] private KeyCode _exitPlayModeKey;
+
+        #endregion
+
         #region Behaviour
 
         [Button(ButtonSizes.Medium)]
@@ -58,7 +65,14 @@ namespace AllosiusDevUtilities.Core
 
         private void Update()
         {
-            if(gameIsPaused)
+#if UNITY_EDITOR
+            if (Input.GetKeyDown(_exitPlayModeKey))
+            {
+                EditorApplication.ExitPlaymode();
+            }
+#endif
+
+            if (gameIsPaused)
             {
                 return;
             }
