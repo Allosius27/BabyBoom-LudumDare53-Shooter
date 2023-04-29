@@ -4,6 +4,7 @@ using AllosiusDevCore.QuestSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace AllosiusDevCore
 {
@@ -13,11 +14,100 @@ namespace AllosiusDevCore
 
         public QuestList QuestManager => questManager;
 
+        public int score { get; protected set; }
+
+        public int currentMultiplier { get; protected set; } = 1;
+
+        public float currentTimer { get; protected set; }
+
+        public int currentSavedBabiesCount { get; protected set; }
+        public int currentOupsBabiesCount { get; protected set; }
+
         #endregion
 
         #region UnityInspector
 
         [SerializeField] private QuestList questManager;
+
+        #endregion
+
+        #region Events
+
+        public event Action SetScoreEvent;
+        public event Action SetMultiplierEvent;
+        public event Action SetTimerEvent;
+        public event Action SetSavedBabiesEvent;
+        public event Action SetOupsBabiesEvent;
+
+
+        #endregion
+
+        #region Behaviour
+
+        public void ResetGame(GameData gameData)
+        {
+            Debug.Log("Reset Game");
+            SetScore(0);
+            currentMultiplier = 1;
+            currentTimer = gameData.partyDuration;
+            currentSavedBabiesCount = 0;
+            currentOupsBabiesCount = 0;
+        }
+
+        public void ChangeScore(int amount)
+        {
+            SetScore(score + amount);
+        }
+
+        private void SetScore(int amount)
+        {
+            score = amount;
+            SetScoreEvent?.Invoke();
+        }
+
+        public void ChangeMultiplier(int amount)
+        {
+            SetMultiplier(currentMultiplier + amount);
+        }
+
+        private void SetMultiplier(int amount)
+        {
+            currentMultiplier = amount;
+            SetMultiplierEvent?.Invoke();
+        }
+
+        public void ChangeTimer(float amount)
+        {
+            SetTimer(currentTimer + amount);
+        }
+
+        private void SetTimer(float amount)
+        {
+            currentTimer = amount;
+            SetTimerEvent?.Invoke();
+        }
+
+        public void ChangeSavedBabiesCount(int amount)
+        {
+            SetSavedBabiesCount(currentSavedBabiesCount + amount);
+        }
+
+        private void SetSavedBabiesCount(int amount)
+        {
+            currentSavedBabiesCount = amount;
+            SetSavedBabiesEvent?.Invoke();
+        }
+
+        public void ChangeOupsBabiesCount(int amount)
+        {
+            SetOupsBabiesCount(currentOupsBabiesCount + amount);
+        }
+
+        private void SetOupsBabiesCount(int amount)
+        {
+            currentOupsBabiesCount = amount;
+            SetOupsBabiesEvent?.Invoke();
+        }
 
         #endregion
     }

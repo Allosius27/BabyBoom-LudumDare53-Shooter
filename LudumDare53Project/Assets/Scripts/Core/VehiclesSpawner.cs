@@ -141,10 +141,12 @@ public class VehiclesSpawner : MonoBehaviour
         if(_wayDirection == DirectionEnum.Forward)
         {
             vehicle.direction = Vector3.forward;
+            vehicle.transform.localScale = new Vector3(vehicle.transform.localScale.x, vehicle.transform.localScale.y, 1);
         }
         else
         {
             vehicle.direction = Vector3.back;
+            vehicle.transform.localScale = new Vector3(vehicle.transform.localScale.x, vehicle.transform.localScale.y, -1);
         }
         
 
