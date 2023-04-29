@@ -1,11 +1,8 @@
-using AllosiusDevCore;
-using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New BabyData", menuName = "Core/BabyData")]
-public class BabyData : SerializedScriptableObject
+public class VehicleWheel : MonoBehaviour
 {
     #region Fields
 
@@ -21,10 +18,6 @@ public class BabyData : SerializedScriptableObject
 
     #region UnityInspector
 
-    [SerializeField] public float babySpeed = 50.0f;
-
-    [SerializeField] public FeedbacksData babyDeathFeedbacks;
-
     #endregion
 
     #region Class
@@ -32,6 +25,15 @@ public class BabyData : SerializedScriptableObject
     #endregion
 
     #region Behaviour
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Baby baby = other.GetComponent<Baby>();
+        if(baby != null)
+        {
+            baby.BabyDeath();
+        }
+    }
 
     #endregion
 

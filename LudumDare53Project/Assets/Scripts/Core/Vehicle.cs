@@ -12,11 +12,15 @@ public class Vehicle : MonoBehaviour
 
     private List<Baby> _currentBabies = new List<Baby>();
 
+    private bool _isFull;
+
     #endregion
 
     #region UnityInspector
 
     [Required] [SerializeField] private VehicleData _vehicleData;
+
+    [Required] [SerializeField] private BabySpot[] _spots;
 
     #endregion
 
@@ -43,6 +47,15 @@ public class Vehicle : MonoBehaviour
         Move();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Baby baby = collision.gameObject.GetComponent<Baby>();
+        if(baby != null)
+        {
+            AddBaby(baby);
+        }
+    }
+
     private void Move()
     {
         float moveStep = _vehicleData.speed * Time.deltaTime;
@@ -52,6 +65,67 @@ public class Vehicle : MonoBehaviour
     public void QuitScreen()
     {
         Destroy(gameObject);
+    }
+
+    public void AddBaby(Baby baby)
+    {
+        BabySpot spotAvailable = GetAvailableBabySpot();
+        if(!_isFull && spotAvailable != null)
+        {
+            _currentBabies.Add(baby);
+            spotAvailable.isTaken = true;
+            baby.Rb.velocity = Vector3.zero;
+            baby.Rb.isKinematic = true;
+            baby.Rb.useGravity = false;
+            baby.isShooted = false;
+            baby.Col.enabled = false;
+            baby.transform.SetParent(spotAvailable.transform);
+            baby.transform.localPosition = Vector3.zero;
+            baby.transform.localEulerAngles = Vector3.zero;
+
+            _isFull = CheckIsFull();
+
+            if(_isFull)
+            {
+
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+    public BabySpot GetAvailableBabySpot()
+    {
+        for (int i = 0; i < _spots.Length; i++)
+        {
+            if(_spots[i].isTaken == false)
+            {
+                return _spots[i];
+            }
+        }
+
+        return null;
+    }
+
+    public bool CheckIsFull()
+    {
+        if(_vehicleData.sizeInfinite)
+        {
+            return false;
+        }
+        else
+        {
+            if(_currentBabies.Count >= _vehicleData.size)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
     #endregion

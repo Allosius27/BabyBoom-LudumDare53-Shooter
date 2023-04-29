@@ -1,17 +1,16 @@
-using AllosiusDevCore;
-using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New BabyData", menuName = "Core/BabyData")]
-public class BabyData : SerializedScriptableObject
+public class BabySpot : MonoBehaviour
 {
     #region Fields
 
     #endregion
 
     #region Properties
+
+    public bool isTaken { get; set; }
 
     #endregion
 
@@ -20,10 +19,6 @@ public class BabyData : SerializedScriptableObject
     #endregion
 
     #region UnityInspector
-
-    [SerializeField] public float babySpeed = 50.0f;
-
-    [SerializeField] public FeedbacksData babyDeathFeedbacks;
 
     #endregion
 

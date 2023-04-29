@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3568116244ca4574b95648a4be1f3ee6, type: 3}
-  m_Name: BabyData
+  m_Script: {fileID: 11500000, guid: 6aa7626fd3d23d44e8e847b75899cfa6, type: 3}
+  m_Name: BabyDeath FeedbacksData
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,5 +21,4 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  babySpeed: 50
-  babyDeathFeedbacks: {fileID: 11400000, guid: 67380e4f7de629149af11054f59a1412, type: 2}
+  feedbacks: []

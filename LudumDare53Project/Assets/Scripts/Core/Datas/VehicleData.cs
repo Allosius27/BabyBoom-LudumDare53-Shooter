@@ -10,6 +10,8 @@ public class VehicleData : SerializedScriptableObject
 
     [SerializeField] public float speed = 1.0f;
 
+    [SerializeField] public bool sizeInfinite;
+    [HideIfGroup("sizeInfinite")]
     [SerializeField] public int size = 2;
 
     #endregion

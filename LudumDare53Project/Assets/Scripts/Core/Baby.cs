@@ -1,18 +1,26 @@
+using AllosiusDevCore;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(FeedbacksReader))]
 public class Baby : MonoBehaviour
 {
     #region Fields
 
     private Rigidbody _rb;
 
+    private Collider _col;
+
+    private FeedbacksReader _feedbacksReader;
+
     #endregion
 
     #region Properties
 
     public Rigidbody Rb => _rb;
+
+    public Collider Col => _col;
 
     public Vector3 target{ get; set; }
 
@@ -41,14 +49,16 @@ public class Baby : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _feedbacksReader = GetComponent<FeedbacksReader>();
+
         _rb = GetComponent<Rigidbody>();
+        _col = GetComponent<Collider>();
 
         speed = _babyData.babySpeed;
     }
 
     private void Update()
     {
-
         if(isShooted)
         {
             var step = speed * Time.deltaTime; // calculate distance to move
@@ -58,8 +68,13 @@ public class Baby : MonoBehaviour
             {
                 isShooted = false;
             }
-        }
-        
+        } 
+    }
+
+    public void BabyDeath()
+    {
+        _feedbacksReader.ReadFeedback(_babyData.babyDeathFeedbacks);
+        Destroy(gameObject);
     }
 
     #endregion
