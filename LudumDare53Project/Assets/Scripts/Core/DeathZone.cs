@@ -33,6 +33,12 @@ public class DeathZone : MonoBehaviour
         {
             vehicle.QuitScreen();
         }
+
+        Baby baby = other.GetComponent<Baby>();
+        if(baby != null)
+        {
+            Destroy(baby.gameObject);
+        }
     }
 
     #endregion

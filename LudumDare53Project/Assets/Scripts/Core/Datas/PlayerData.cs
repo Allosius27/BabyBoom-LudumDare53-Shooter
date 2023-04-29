@@ -8,7 +8,7 @@ public class PlayerData : SerializedScriptableObject
 {
     #region UnityInspector
 
-    [SerializeField] public float babySpeed = 1.0f;
+    [SerializeField] public float shootingCooldownTime = 0.5f;
 
     [SerializeField] public Baby babyPrefab;
 

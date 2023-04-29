@@ -14,6 +14,12 @@ public class Baby : MonoBehaviour
 
     public Rigidbody Rb => _rb;
 
+    public Vector3 target{ get; set; }
+
+    public float speed { get; set; }
+
+    public bool isShooted { get; set; }
+
     #endregion
 
     #region Events
@@ -21,6 +27,8 @@ public class Baby : MonoBehaviour
     #endregion
 
     #region UnityInspector
+
+    [Required] [SerializeField] private BabyData _babyData;
 
     #endregion
 
@@ -34,6 +42,24 @@ public class Baby : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+
+        speed = _babyData.babySpeed;
+    }
+
+    private void Update()
+    {
+
+        if(isShooted)
+        {
+            var step = speed * Time.deltaTime; // calculate distance to move
+            transform.position = Vector3.MoveTowards(transform.position, target, step);
+
+            if (Vector3.Distance(transform.position, target) < 0.01f)
+            {
+                isShooted = false;
+            }
+        }
+        
     }
 
     #endregion
