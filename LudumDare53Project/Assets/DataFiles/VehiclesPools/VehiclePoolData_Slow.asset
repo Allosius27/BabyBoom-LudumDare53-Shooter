@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 847cb5b4dcb88564aa03f66be907aff5, type: 3}
+  m_Name: VehiclePoolData_Slow
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  vehicleDatas:
+  - {fileID: 11400000, guid: 14ff365b05f5de5418137d22f5f32ca8, type: 2}
+  - {fileID: 11400000, guid: 14ff365b05f5de5418137d22f5f32ca8, type: 2}
+  - {fileID: 11400000, guid: 14ff365b05f5de5418137d22f5f32ca8, type: 2}
+  - {fileID: 11400000, guid: 14ff365b05f5de5418137d22f5f32ca8, type: 2}
+  - {fileID: 11400000, guid: fc780c579df18ab44af1acd805c45f42, type: 2}
+  - {fileID: 11400000, guid: b7a83486ded7e8e4cb6356d2362f63de, type: 2}
+  - {fileID: 11400000, guid: b7a83486ded7e8e4cb6356d2362f63de, type: 2}
+  - {fileID: 11400000, guid: b7a83486ded7e8e4cb6356d2362f63de, type: 2}
+  - {fileID: 11400000, guid: b7a83486ded7e8e4cb6356d2362f63de, type: 2}
+  - {fileID: 11400000, guid: 2d26c154e354a9c43953d059d08dccb1, type: 2}
+  rateTimes:
+  - 1
+  - 1.5
+  - 1.5
+  - 1.5
+  - 1.5
+  - 2
+  - 2
+  - 2
+  - 2
+  - 2.5
