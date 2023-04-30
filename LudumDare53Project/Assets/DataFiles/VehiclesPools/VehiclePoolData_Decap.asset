@@ -21,6 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
+  waySpeed: 726
   vehicleDatas:
   - {fileID: 11400000, guid: fc780c579df18ab44af1acd805c45f42, type: 2}
   - {fileID: 11400000, guid: fc780c579df18ab44af1acd805c45f42, type: 2}

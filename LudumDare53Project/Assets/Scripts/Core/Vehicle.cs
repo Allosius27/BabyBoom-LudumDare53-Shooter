@@ -18,6 +18,8 @@ public class Vehicle : MonoBehaviour
 
     #region Properties
 
+    public float speed { get; set; }
+
     public Vector3 direction { get; set; }
 
 
@@ -65,7 +67,7 @@ public class Vehicle : MonoBehaviour
 
     private void Move()
     {
-        float moveStep = _vehicleData.speed * Time.deltaTime;
+        float moveStep = speed * Time.deltaTime;
         _rb.velocity = direction * moveStep;
     }
 

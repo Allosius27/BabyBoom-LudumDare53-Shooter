@@ -138,6 +138,7 @@ public class VehiclesSpawner : MonoBehaviour
     {
         // Spawn Vehicle
         Vehicle vehicle = Instantiate(vehicleToSpawn.vehiclePrefab, _spawnPoint);
+        vehicle.speed = _vehiclesPoolData.waySpeed;
         if(_wayDirection == DirectionEnum.Forward)
         {
             vehicle.direction = Vector3.forward;

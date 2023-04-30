@@ -20,6 +20,8 @@ public class VehiclePoolData : SerializedScriptableObject
 
     #region UnityInspector
 
+    [SerializeField] public float waySpeed = 450f;
+
     [SerializeField] public List<VehicleData> vehicleDatas = new List<VehicleData>();
 
     [SerializeField] public List<float> rateTimes = new List<float>();

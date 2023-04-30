@@ -10,7 +10,7 @@ public class VehicleData : SerializedScriptableObject
 
     [Header("Stats")]
 
-    [SerializeField] public float speed = 1.0f;
+    //[SerializeField] public float speed = 1.0f;
 
     [SerializeField] public bool sizeInfinite;
     [HideIfGroup("sizeInfinite")]
