@@ -11,6 +11,7 @@ public class VehicleWheel : MonoBehaviour
     #region Properties
 	public GameObject blood;
 	public Vehicle Car;
+	public GameObject Visual;
     #endregion
 
     #region Events
@@ -29,8 +30,8 @@ public class VehicleWheel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Baby baby = other.GetComponent<Baby>();
-        if(baby != null)
+	    Baby baby = other.GetComponent<Baby>();
+	    Visual.GetComponent<MeshRenderer>().materials[0].SetFloat("IsBlood",1);
         {
         	
         	GameObject obj = Instantiate(blood, new Vector3(transform.position.x+0.4f, transform.position.y+0.1f, transform.position.z) , Quaternion.identity);
