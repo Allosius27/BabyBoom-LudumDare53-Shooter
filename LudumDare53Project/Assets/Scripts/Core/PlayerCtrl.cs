@@ -1,4 +1,4 @@
-using AllosiusDevUtilities.Audio;
+﻿using AllosiusDevUtilities.Audio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +17,10 @@ public class PlayerCtrl : MonoBehaviour
     [SerializeField] GameObject Visual;
 
     private bool _canPlayBabyLaunchSound = true;
-    private float _babyLaunchSoundTimer;
+	private float _babyLaunchSoundTimer;
+    
+    private bool _canPlayBabySound = true;
+    private float _babySoundTimer;
 
     #endregion
 
@@ -97,6 +100,19 @@ public class PlayerCtrl : MonoBehaviour
             }
         }
         
+	    _babySoundTimer += Time.deltaTime;
+	    if (_babySoundTimer >= _playerData.BabySoundCooldown)
+	    {
+		    _babySoundTimer = 0;
+		    _canPlayBabySound = true;
+	    }
+	    
+	    if (_canPlayBabySound)
+	    {
+		    AudioController.Instance.PlayRandomAudio(_playerData.BabyAudio);
+		    _canPlayBabySound = false;
+		    _babySoundTimer = 0;
+	    }
         
     }
 
@@ -119,7 +135,7 @@ public class PlayerCtrl : MonoBehaviour
         //_currentBaby.transform.position = direction;
         _currentBaby.target = direction;
         _currentBaby.isShooted = true;
-
+	    AudioController.Instance.PlayRandomAudio(_playerData.ShootAudio);
         if (_canPlayBabyLaunchSound)
         {
             AudioController.Instance.PlayRandomAudio(_currentBaby.BabyData.babyLaunchSounds);

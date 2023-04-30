@@ -1,5 +1,6 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using AllosiusDevUtilities.Audio;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
@@ -15,6 +16,12 @@ public class PlayerData : SerializedScriptableObject
     [Header("Feedbacks")]
 
     [SerializeField] public float launchBabySoundCooldown = 1f;
+    
+	[SerializeField] public float BabySoundCooldown = 3f;
+    
+	[SerializeField] public AudioData[] ShootAudio;
+	
+	[SerializeField] public AudioData[] BabyAudio;
 
     #endregion
 }

@@ -23,3 +23,17 @@ MonoBehaviour:
     SerializationNodes: []
   shootingCooldownTime: 0.25
   babyPrefab: {fileID: 4110570976354494647, guid: 75fc5f37f8c27f24db6d4c0fa6a3ed20, type: 3}
+  launchBabySoundCooldown: 1
+  BabySoundCooldown: 3
+  ShootAudio:
+  - {fileID: 11400000, guid: f72e0c0f1488c9540a0068a7a9e57fab, type: 2}
+  - {fileID: 11400000, guid: 6bfa768d7b260cd4a892317a977f35e7, type: 2}
+  - {fileID: 11400000, guid: c4dd0abc54b083e46bc11b19fb32078a, type: 2}
+  - {fileID: 11400000, guid: 01689d7435ffe70498c5dfaf0e801ecb, type: 2}
+  BabyAudio:
+  - {fileID: 11400000, guid: 1fe322ef45a979b4d9f6cb3673d9785e, type: 2}
+  - {fileID: 11400000, guid: 4ee2ec573dc9020428adf1d7e6d16805, type: 2}
+  - {fileID: 11400000, guid: 6269146ee5a4674459a3a2a0e10db716, type: 2}
+  - {fileID: 11400000, guid: 431cd4e41bdac2e4190ac8e8714978da, type: 2}
+  - {fileID: 11400000, guid: 2b0b4b4b1abe5514fb33944f8d061587, type: 2}
+  - {fileID: 11400000, guid: 840332db4ebfa534c894d89f26da190a, type: 2}
