@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Vehicle : MonoBehaviour
 {
@@ -85,6 +86,40 @@ public class Vehicle : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void UpdateBabiesStockUI()
+    {
+        if(_availablesSlotsUIParent == null)
+        {
+            return;
+        }
+
+        if(_currentBabies.Count >= 1 && _vehicleData.sizeInfinite == false)
+        {
+            _availablesSlotsUIParent.gameObject.SetActive(true);
+        }
+        else
+        {
+            _availablesSlotsUIParent.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < _availablesSlotsUIParent.childCount; i++)
+        {
+            if(i < _currentBabies.Count)
+            {
+                _availablesSlotsUIParent.GetChild(i).GetComponent<Image>().enabled = true;
+            }
+            else
+            {
+                _availablesSlotsUIParent.GetChild(i).GetComponent<Image>().enabled = false;
+            }
+
+            if(_isFull)
+            {
+                _availablesSlotsUIParent.GetChild(i).GetComponent<Image>().color = _vehicleData.fullColor;
+            }
+        }
+    }
+
     public void AddBaby(Baby baby)
     {
         BabySpot spotAvailable = GetAvailableBabySpot();
@@ -120,6 +155,7 @@ public class Vehicle : MonoBehaviour
             }
 
             _isFull = CheckIsFull();
+            UpdateBabiesStockUI();
 
             if(_isFull)
             {

@@ -22,3 +22,5 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   partyDuration: 90
+  endGameScene: {fileID: 11400000, guid: e03f3143c6b0ca44a950c0dba6faf786, type: 2}
+  endGameFeedbacks: {fileID: 11400000, guid: 9cb644e6ff5e1004c81ea4e1160bc0fc, type: 2}
