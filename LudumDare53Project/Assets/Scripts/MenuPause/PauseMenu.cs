@@ -113,6 +113,7 @@ public class PauseMenu : MonoBehaviour
         ResumeAction();
         AudioController.Instance.StopAllMusics();
         canPause = false;
-        SceneLoader.Instance.ActiveLoadingScreen(mainMenuSceneData, 1.0f);
+        //SceneLoader.Instance.ActiveLoadingScreen(mainMenuSceneData, 1.0f);
+        SceneLoader.Instance.ChangeScene(mainMenuSceneData.sceneToLoad);
     }
 }

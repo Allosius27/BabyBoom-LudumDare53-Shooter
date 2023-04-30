@@ -36,6 +36,7 @@ namespace AllosiusDevCore
         {
             if (SceneManager.GetActiveScene().buildIndex == (int)(object)Scenes.BootScene)
             {
+                Debug.Log("Boot Scene");
                 ChangeScene(Scenes.MainMenu);
             }
         }

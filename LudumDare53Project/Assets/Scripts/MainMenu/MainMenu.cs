@@ -97,8 +97,8 @@ public class MainMenu : MonoBehaviour
     {
         PauseMenu.canPause = true;
         //StartCoroutine(SceneLoader.Instance.LoadAsynchronously(Scenes.Level));
-        SceneLoader.Instance.ActiveLoadingScreen(startLevelSceneData, _timeToWait);
-
+        //SceneLoader.Instance.ActiveLoadingScreen(startLevelSceneData, _timeToWait);
+        SceneLoader.Instance.ChangeScene(startLevelSceneData.sceneToLoad);
     }
    
     public void Options()
