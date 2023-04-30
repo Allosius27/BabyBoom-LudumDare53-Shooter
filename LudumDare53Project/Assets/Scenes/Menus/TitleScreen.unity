@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 46835024}
   m_Layer: 0
   m_Name: '%$ Header'
-  m_TagString: EditorOnly
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   headerSettings:
     headerText: Cameras
     headerColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    editorOnly: 1
+    editorOnly: 0
     textAlignmentOptions: 0
     fontStyleOptions: 0
     fontSize: 12
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 1307811419}
   m_Layer: 0
   m_Name: '%$ Header'
-  m_TagString: EditorOnly
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   headerSettings:
     headerText: Management
     headerColor: {r: 1, g: 0, b: 0, a: 1}
-    editorOnly: 1
+    editorOnly: 0
     textAlignmentOptions: 0
     fontStyleOptions: 0
     fontSize: 12
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 1346853862}
   m_Layer: 0
   m_Name: '%$ Header'
-  m_TagString: EditorOnly
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
   headerSettings:
     headerText: GUI
     headerColor: {r: 0.9837489, g: 0, b: 1, a: 1}
-    editorOnly: 1
+    editorOnly: 0
     textAlignmentOptions: 0
     fontStyleOptions: 0
     fontSize: 12
@@ -475,6 +475,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1459636499}
     m_Modifications:
+    - target: {fileID: 89567853821765005, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 89567853821765005, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 89567853821765005, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 89567853821765005, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3132071992873575122, guid: 058ad342c502da74891556d043149eab, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -562,6 +578,38 @@ PrefabInstance:
     - target: {fileID: 3132071992873575123, guid: 058ad342c502da74891556d043149eab, type: 3}
       propertyPath: m_Name
       value: MainMenuCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896658430893153288, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896658430893153288, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896658430893153288, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896658430893153288, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774465380715715848, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774465380715715848, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774465380715715848, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7774465380715715848, guid: 058ad342c502da74891556d043149eab, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 058ad342c502da74891556d043149eab, type: 3}
