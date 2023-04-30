@@ -22,4 +22,6 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   babySpeed: 95.7
+  babyMoveSpeed: 0.5
   babyDeathFeedbacks: {fileID: 11400000, guid: 67380e4f7de629149af11054f59a1412, type: 2}
+  deathPointsScoreAdded: -4

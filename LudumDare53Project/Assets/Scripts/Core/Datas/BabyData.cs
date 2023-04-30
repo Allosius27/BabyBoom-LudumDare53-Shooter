@@ -25,6 +25,8 @@ public class BabyData : SerializedScriptableObject
 
     [SerializeField] public float babySpeed = 50.0f;
 
+    [SerializeField] public float babyMoveSpeed = 50.0f;
+
     [SerializeField] public FeedbacksData babyDeathFeedbacks;
 
     [Header("Score")]
