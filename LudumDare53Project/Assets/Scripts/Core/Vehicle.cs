@@ -1,4 +1,4 @@
-using AllosiusDevCore;
+﻿using AllosiusDevCore;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,9 +18,13 @@ public class Vehicle : MonoBehaviour
 
     #region Properties
 
-    public float speed { get; set; }
+	public float speed { get; set; }
+    
+	public DirectionEnum wayDirection {get; set;}
 
-    public Vector3 direction { get; set; }
+	public Vector3 direction { get; set; }
+    
+
 
 
     #endregion

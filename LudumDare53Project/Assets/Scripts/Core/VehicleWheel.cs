@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,8 @@ public class VehicleWheel : MonoBehaviour
     #endregion
 
     #region Properties
-
+	public GameObject blood;
+	public Vehicle Car;
     #endregion
 
     #region Events
@@ -31,6 +32,20 @@ public class VehicleWheel : MonoBehaviour
         Baby baby = other.GetComponent<Baby>();
         if(baby != null)
         {
+        	
+        	GameObject obj = Instantiate(blood, new Vector3(transform.position.x+0.4f, transform.position.y+0.1f, transform.position.z) , Quaternion.identity);
+        	
+        	if(Car.wayDirection == DirectionEnum.Forward)
+        	{
+        		obj.transform.localEulerAngles = new Vector3(90.0f, 0, 0);
+        	}
+        	else
+        	{
+        		obj.transform.localEulerAngles = new Vector3(-90.0f, 0, 0);
+        	}
+        	
+        	
+        	
             baby.BabyDeath();
         }
     }
