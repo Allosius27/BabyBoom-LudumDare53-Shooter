@@ -15,6 +15,8 @@ public class Baby : MonoBehaviour
 
     private FeedbacksReader _feedbacksReader;
 
+    private Animator _animator;
+
     #endregion
 
     #region Properties
@@ -47,9 +49,10 @@ public class Baby : MonoBehaviour
 
     [Required] [SerializeField] private BabyData _babyData;
 
-    [Required] [SerializeField] private Animator _animator;
 
     [SerializeField] private Vector3 _rotationToGround = new Vector3(90, 0, 0);
+
+    [Required] [SerializeField] private Animator[] _babiesVisuals;
 
     #endregion
 
@@ -69,6 +72,8 @@ public class Baby : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         speed = _babyData.babySpeed;
+
+        InitVisual();
     }
 
     private void Update()
@@ -86,7 +91,7 @@ public class Baby : MonoBehaviour
 
         if(_animator != null)
         {
-            _animator.SetBool("IsInMovement", isInMovement);
+            _animator.SetBool("isInMovement", isInMovement);
         }
     }
 
@@ -96,6 +101,17 @@ public class Baby : MonoBehaviour
         {
             Move();
         }
+    }
+
+    private void InitVisual()
+    {
+        int rnd = AllosiusDevUtilities.Utils.AllosiusDevUtils.RandomGeneration(0, _babiesVisuals.Length);
+        for (int i = 0; i < _babiesVisuals.Length; i++)
+        {
+            _babiesVisuals[i].gameObject.SetActive(false);
+        }
+        _babiesVisuals[rnd].gameObject.SetActive(true);
+        _animator = _babiesVisuals[rnd];
     }
 
     private void Move()
