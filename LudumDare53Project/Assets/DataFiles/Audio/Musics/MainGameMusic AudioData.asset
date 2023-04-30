@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6151fd00d781a7a46a8d4399e32151bc, type: 3}
-  m_Name: MainMenuMusic AudioData
+  m_Name: MainGameMusic AudioData
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 190d6e9081640944db38c070ca034a07, type: 3}
+  clip: {fileID: 8300000, guid: 782e6ec77b0b5e846a61279b67133b0e, type: 3}
   typeSound: 1
   pitch: 1
   loop: 1
   priority: 128
   parameters2d: 1
-  volume2d: 0.25
+  volume2d: 1
   parameters3d: 0
   volume3d: 0.25
   spacialBlend: 0
