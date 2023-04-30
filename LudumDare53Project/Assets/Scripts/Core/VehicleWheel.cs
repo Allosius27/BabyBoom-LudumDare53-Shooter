@@ -32,6 +32,7 @@ public class VehicleWheel : MonoBehaviour
     {
 	    Baby baby = other.GetComponent<Baby>();
 	    Visual.GetComponent<MeshRenderer>().materials[0].SetFloat("IsBlood",1);
+        if (baby != null)
         {
         	
         	GameObject obj = Instantiate(blood, new Vector3(transform.position.x+0.4f, transform.position.y+0.1f, transform.position.z) , Quaternion.identity);
