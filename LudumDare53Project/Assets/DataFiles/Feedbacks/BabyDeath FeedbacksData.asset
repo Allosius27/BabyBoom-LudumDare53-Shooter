@@ -40,21 +40,3 @@ MonoBehaviour:
       IsActive: 1
       newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
       colorChangeDuration: 0.1
-  - Type: 2
-    feedbackWait:
-      IsActive: 1
-      waitTime: 0
-    feedbackPlaySound:
-      IsActive: 1
-      audioData: {fileID: 11400000, guid: 52abf64e210bb5641be5fc0faf3e02ce, type: 2}
-    feedbackInstantiateObject:
-      IsActive: 1
-      objectToInstantiate: {fileID: 0}
-      objectPositionOffset: {x: 0, y: 0, z: 0}
-    feedbackChangeColorSprite:
-      IsActive: 1
-      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-    feedbackTimerChangeColorSprite:
-      IsActive: 1
-      newSpriteColor: {r: 0, g: 0, b: 0, a: 0}
-      colorChangeDuration: 0.1
