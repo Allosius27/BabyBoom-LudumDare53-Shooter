@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -138,16 +138,17 @@ public class VehiclesSpawner : MonoBehaviour
     {
         // Spawn Vehicle
         Vehicle vehicle = Instantiate(vehicleToSpawn.vehiclePrefab, _spawnPoint);
-        vehicle.speed = _vehiclesPoolData.waySpeed;
+	    vehicle.speed = _vehiclesPoolData.waySpeed;
+	    vehicle.wayDirection = _wayDirection;
         if(_wayDirection == DirectionEnum.Forward)
         {
             vehicle.direction = Vector3.forward;
-            vehicle.transform.localScale = new Vector3(vehicle.transform.localScale.x, vehicle.transform.localScale.y, 1);
+	        vehicle.transform.localScale = new Vector3(vehicle.transform.localScale.x, vehicle.transform.localScale.y, 1);
         }
         else
         {
             vehicle.direction = Vector3.back;
-            vehicle.transform.localScale = new Vector3(vehicle.transform.localScale.x, vehicle.transform.localScale.y, -1);
+	        vehicle.transform.localScale = new Vector3(vehicle.transform.localScale.x, vehicle.transform.localScale.y, -1);
         }
         
 
