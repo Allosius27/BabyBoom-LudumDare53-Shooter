@@ -24,6 +24,7 @@ public class VehicleData : SerializedScriptableObject
 
     [HideIfGroup("sizeInfinite")]
     [SerializeField] public int scorePointsToFull = 20;
+    [HideIfGroup("sizeInfinite")]
     [SerializeField] public float scoreMultiplierBonusToFull = 0.1f;
 
     #endregion

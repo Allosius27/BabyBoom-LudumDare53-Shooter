@@ -30,6 +30,8 @@ public class Baby : MonoBehaviour
 
     public bool isInMovement { get; set; }
 
+    public bool isOnGround { get; set; }
+
     #endregion
 
     #region Events
@@ -41,6 +43,8 @@ public class Baby : MonoBehaviour
     [Required] [SerializeField] private BabyData _babyData;
 
     [Required] [SerializeField] private Animator _animator;
+
+    [SerializeField] private Vector3 rotationToGround = new Vector3(90, 0, 0);
 
     #endregion
 
@@ -88,6 +92,17 @@ public class Baby : MonoBehaviour
         GameManager.Instance.ChangeOupsBabiesCount(1);
         _feedbacksReader.ReadFeedback(_babyData.babyDeathFeedbacks);
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Entity entity = collision.gameObject.GetComponent<Entity>();
+        if(entity != null)
+        {
+            isOnGround = true;
+
+
+        }
     }
 
     #endregion

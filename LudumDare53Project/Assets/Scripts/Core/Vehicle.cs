@@ -38,6 +38,7 @@ public class Vehicle : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezeRotation;
 
         //int rnd = AllosiusDevUtilities.Utils.AllosiusDevUtils.RandomGeneration(0, 100);
         //if(rnd <= 50)
@@ -79,7 +80,7 @@ public class Vehicle : MonoBehaviour
     public void AddBaby(Baby baby)
     {
         BabySpot spotAvailable = GetAvailableBabySpot();
-        if(!_isFull && spotAvailable != null)
+        if(!_isFull && spotAvailable != null && baby.isOnGround == false)
         {
             if(_vehicleData.scorePointsAdded > 0)
             {

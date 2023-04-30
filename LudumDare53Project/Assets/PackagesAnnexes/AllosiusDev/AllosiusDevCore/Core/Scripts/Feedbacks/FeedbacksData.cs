@@ -146,10 +146,10 @@ namespace AllosiusDevCore
 
         public IEnumerator Execute(FeedbacksReader _owner)
         {
-            Debug.Log("Execute");
+            Debug.Log("Execute" + feedbacks.Count);
             foreach (var item in feedbacks)
             {
-                Debug.Log("Execute " + item);
+                Debug.Log("Execute " + item.ToString());
                 yield return GetTypeFeedback(item).Execute(_owner);
             }
         }
