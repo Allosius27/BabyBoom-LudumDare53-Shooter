@@ -12,6 +12,9 @@ public class PlayerCtrl : MonoBehaviour
 
     private IEnumerator _shootCooldownCoroutine;
 
+    private Animator anim;
+    [SerializeField] GameObject Visual;
+
     #endregion
 
     #region UnityInspector
@@ -28,6 +31,7 @@ public class PlayerCtrl : MonoBehaviour
     private void Start()
     {
         InstantiateBaby();
+        anim = Visual.GetComponent<Animator>();
     }
 
     private void Update()
@@ -45,6 +49,8 @@ public class PlayerCtrl : MonoBehaviour
 
             if (Input.GetMouseButton(0) && _canShoot)
             {
+
+                anim.SetTrigger("Shot");
                 //float distance = -difference.magnitude;
                 //Vector3 direction = difference / distance;
                 //direction.Normalize();
