@@ -35,6 +35,10 @@ public class Vehicle : MonoBehaviour
 
     [Required] [SerializeField] private BabySpot[] _spots;
 
+    [SerializeField] private GameObject _heartUI;
+
+    [SerializeField] private Transform _availablesSlotsUIParent;
+
     #endregion
 
     #region Behaviour
@@ -88,6 +92,13 @@ public class Vehicle : MonoBehaviour
         {
             if(_vehicleData.scorePointsAdded > 0)
             {
+                if(_heartUI != null)
+                {
+                    _heartUI.SetActive(true);
+                    _heartUI.GetComponent<Animator>().SetTrigger("Heart");
+                }
+                
+
                 _currentBabies.Add(baby);
                 spotAvailable.isTaken = true;
                 baby.Rb.velocity = Vector3.zero;

@@ -16,6 +16,9 @@ public class VehicleData : SerializedScriptableObject
     [HideIfGroup("sizeInfinite")]
     [SerializeField] public int size = 2;
 
+    [HideIfGroup("sizeInfinite")]
+    [SerializeField] public Color fullColor = Color.green;
+
     [SerializeField] public Vehicle vehiclePrefab;
 
     [Header("Score")]
