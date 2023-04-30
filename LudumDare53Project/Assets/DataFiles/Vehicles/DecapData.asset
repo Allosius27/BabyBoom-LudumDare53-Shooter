@@ -21,7 +21,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  speed: 900
+  speed: 726
   sizeInfinite: 0
-  size: 1
+  size: 2
   vehiclePrefab: {fileID: 8287106726081325025, guid: 6b0a4b426fd80a34dbca13eba2dafc07, type: 3}
