@@ -12,5 +12,9 @@ public class PlayerData : SerializedScriptableObject
 
     [SerializeField] public Baby babyPrefab;
 
+    [Header("Feedbacks")]
+
+    [SerializeField] public float launchBabySoundCooldown = 1f;
+
     #endregion
 }

@@ -23,5 +23,11 @@ MonoBehaviour:
     SerializationNodes: []
   babySpeed: 95.7
   babyMoveSpeed: 0.5
+  babyLaunchSounds:
+  - {fileID: 11400000, guid: c473dfc13bdea8544946ca24692351f6, type: 2}
+  - {fileID: 11400000, guid: c4571a6073285fb44be81d7fca824155, type: 2}
+  - {fileID: 11400000, guid: 913224051affd5d41864111070a5dd75, type: 2}
+  - {fileID: 11400000, guid: fc8230ab1e298464e9efba0c5d43f8c0, type: 2}
   babyDeathFeedbacks: {fileID: 11400000, guid: 67380e4f7de629149af11054f59a1412, type: 2}
+  babyDeathSound: {fileID: 11400000, guid: 52abf64e210bb5641be5fc0faf3e02ce, type: 2}
   deathPointsScoreAdded: -4

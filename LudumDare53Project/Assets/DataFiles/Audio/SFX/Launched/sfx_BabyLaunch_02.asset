@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6151fd00d781a7a46a8d4399e32151bc, type: 3}
-  m_Name: MainMenuMusic AudioData
+  m_Name: sfx_BabyLaunch_02
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 190d6e9081640944db38c070ca034a07, type: 3}
-  typeSound: 1
+  clip: {fileID: 8300000, guid: 33b0bd4f4c67de8459591d42b31a74bd, type: 3}
+  typeSound: 0
   pitch: 1
-  loop: 1
+  loop: 0
   priority: 128
   parameters2d: 1
-  volume2d: 0.2
+  volume2d: 0.11
   parameters3d: 0
   volume3d: 0.25
   spacialBlend: 0

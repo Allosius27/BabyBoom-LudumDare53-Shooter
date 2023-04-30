@@ -10,11 +10,15 @@ using TMPro;
 public class ScoreMenu : MonoBehaviour
 {
 
+
     #region UnityInspector
 
     [SerializeField] private TextMeshProUGUI _scoreAmountText;
     [SerializeField] private TextMeshProUGUI _savedBabiesAmountText;
     [SerializeField] private TextMeshProUGUI _oupsBabiesAmountText;
+
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
 
     #endregion
 
@@ -22,7 +26,9 @@ public class ScoreMenu : MonoBehaviour
 
     private void Start()
     {
-        if(GameManager.Instance != null)
+        Cursor.SetCursor(null, hotSpot, cursorMode);
+
+        if (GameManager.Instance != null)
         {
             _scoreAmountText.text = GameManager.Instance.score.ToString();
             _savedBabiesAmountText.text = GameManager.Instance.currentSavedBabiesCount.ToString();

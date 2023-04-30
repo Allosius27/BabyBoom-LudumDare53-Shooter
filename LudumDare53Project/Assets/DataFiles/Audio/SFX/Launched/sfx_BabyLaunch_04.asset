@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6151fd00d781a7a46a8d4399e32151bc, type: 3}
-  m_Name: sfx_blood
+  m_Name: sfx_BabyLaunch_04
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: a727af394641b4d4d8f970a97cda073f, type: 3}
+  clip: {fileID: 8300000, guid: a3a1da8346374514b89b2c2bea118212, type: 3}
   typeSound: 0
   pitch: 1
   loop: 0
   priority: 128
   parameters2d: 1
-  volume2d: 0.93
+  volume2d: 0.11
   parameters3d: 0
   volume3d: 0.25
   spacialBlend: 0

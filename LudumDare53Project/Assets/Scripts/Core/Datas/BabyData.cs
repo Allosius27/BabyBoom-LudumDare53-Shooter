@@ -1,4 +1,5 @@
 using AllosiusDevCore;
+using AllosiusDevUtilities.Audio;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
@@ -27,7 +28,12 @@ public class BabyData : SerializedScriptableObject
 
     [SerializeField] public float babyMoveSpeed = 50.0f;
 
+    [Header("Feedbacks")]
+
+    [SerializeField] public AudioData[] babyLaunchSounds;
+
     [SerializeField] public FeedbacksData babyDeathFeedbacks;
+    [SerializeField] public AudioData babyDeathSound;
 
     [Header("Score")]
 

@@ -44,6 +44,10 @@ namespace AllosiusDevCore
         public void ChangeScene(System.Enum _enum)
         {
             OnSceneChanged?.Invoke();
+            AudioController.Instance.StopAllAmbients();
+            AudioController.Instance.StopAllMusics();
+            GameCanvasManager.ResetInstance();
+            GameCore.ResetInstance();
             SceneManager.LoadScene((int)(object)_enum);
         }
 

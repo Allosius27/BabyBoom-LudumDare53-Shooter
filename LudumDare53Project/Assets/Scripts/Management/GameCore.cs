@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AllosiusDevUtilities.Audio;
+using AllosiusDevUtilities.Core;
 
 [RequireComponent(typeof(FeedbacksReader))]
 public class GameCore : Singleton<GameCore>
@@ -18,6 +19,8 @@ public class GameCore : Singleton<GameCore>
 
     #region Properties
 
+    public Texture2D currentAimCursor { get; set; }
+
     #endregion
 
     #region Events
@@ -26,11 +29,18 @@ public class GameCore : Singleton<GameCore>
 
     #region UnityInspector
 
-	[SerializeField] private GameData _gameData;
+    [SerializeField] private GameData _gameData;
     
 	[SerializeField] private AudioData _mainMusic;
 
     [SerializeField] private DeathZone[] outsidesWays;
+    
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.zero;
+
+    [SerializeField] public Texture2D aimCursor;
+    [SerializeField] public Texture2D validAimCursor;
+    [SerializeField] public Texture2D invalidAimCursor;
 
     #endregion
 
@@ -42,16 +52,29 @@ public class GameCore : Singleton<GameCore>
 
     private void Start()
     {
+        currentAimCursor = aimCursor;
+
         _feedbaksReader = GetComponent<FeedbacksReader>();
 
 	    GameManager.Instance.ResetGame(_gameData);
         
 	    AudioController.Instance.PlayAudio(_mainMusic);
+
+        
     }
 
     private void Update()
     {
         UpdateTimer();
+
+        if(GameStateManager.gameIsPaused == false)
+        {
+            Cursor.SetCursor(currentAimCursor, hotSpot, cursorMode);
+        }
+        else
+        {
+            Cursor.SetCursor(null, hotSpot, cursorMode);
+        }
     }
 
     public Transform GetClosestOutsideWay(Transform target)

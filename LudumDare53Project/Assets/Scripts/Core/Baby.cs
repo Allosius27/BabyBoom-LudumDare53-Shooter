@@ -1,4 +1,5 @@
 using AllosiusDevCore;
+using AllosiusDevUtilities.Audio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -33,6 +34,8 @@ public class Baby : MonoBehaviour
     public bool isInMovement { get; set; }
 
     public bool isOnGround { get; set; }
+
+    public BabyData BabyData => _babyData;
 
     #endregion
 
@@ -106,7 +109,10 @@ public class Baby : MonoBehaviour
         Debug.Log("Baby Death");
         GameManager.Instance.ChangeScore(_babyData.deathPointsScoreAdded);
         GameManager.Instance.ChangeOupsBabiesCount(1);
+
         _feedbacksReader.ReadFeedback(_babyData.babyDeathFeedbacks);
+        AudioController.Instance.PlayAudio(_babyData.babyDeathSound);
+
         Destroy(gameObject);
     }
 

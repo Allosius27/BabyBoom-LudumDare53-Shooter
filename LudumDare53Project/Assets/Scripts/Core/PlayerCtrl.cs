@@ -1,3 +1,4 @@
+using AllosiusDevUtilities.Audio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,9 @@ public class PlayerCtrl : MonoBehaviour
 
     private Animator anim;
     [SerializeField] GameObject Visual;
+
+    private bool _canPlayBabyLaunchSound = true;
+    private float _babyLaunchSoundTimer;
 
     #endregion
 
@@ -47,10 +51,28 @@ public class PlayerCtrl : MonoBehaviour
             float rotation = Mathf.Atan2(difference.x, difference.z) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
 
+            Vehicle vehicle = hit.collider.GetComponent<Vehicle>();
+            if(vehicle != null)
+            {
+                if(vehicle.CheckIsFull())
+                {
+                    GameCore.Instance.currentAimCursor = GameCore.Instance.invalidAimCursor;
+                }
+                else
+                {
+                    GameCore.Instance.currentAimCursor = GameCore.Instance.validAimCursor;
+                } 
+            }
+            else
+            {
+                GameCore.Instance.currentAimCursor = GameCore.Instance.aimCursor;
+            }
+
             if (Input.GetMouseButton(0) && _canShoot)
             {
 
                 anim.SetTrigger("Shot");
+
                 //float distance = -difference.magnitude;
                 //Vector3 direction = difference / distance;
                 //direction.Normalize();
@@ -64,6 +86,17 @@ public class PlayerCtrl : MonoBehaviour
         {
             InstantiateBaby();
         }
+
+        if(_canPlayBabyLaunchSound == false)
+        {
+            _babyLaunchSoundTimer += Time.deltaTime;
+            if (_babyLaunchSoundTimer >= _playerData.launchBabySoundCooldown)
+            {
+                _babyLaunchSoundTimer = 0;
+                _canPlayBabyLaunchSound = true;
+            }
+        }
+        
         
     }
 
@@ -86,6 +119,13 @@ public class PlayerCtrl : MonoBehaviour
         //_currentBaby.transform.position = direction;
         _currentBaby.target = direction;
         _currentBaby.isShooted = true;
+
+        if (_canPlayBabyLaunchSound)
+        {
+            AudioController.Instance.PlayRandomAudio(_currentBaby.BabyData.babyLaunchSounds);
+            _canPlayBabyLaunchSound = false;
+            _babyLaunchSoundTimer = 0;
+        }
 
         _currentBaby = null;
         _canShoot = false;
