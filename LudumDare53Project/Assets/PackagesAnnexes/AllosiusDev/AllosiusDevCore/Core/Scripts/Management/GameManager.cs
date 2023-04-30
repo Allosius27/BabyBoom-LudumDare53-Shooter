@@ -12,6 +12,8 @@ namespace AllosiusDevCore
     {
         #region Properties
 
+        public bool firstParty { get; set; } = true;
+
         public QuestList QuestManager => questManager;
 
         public int score { get; protected set; }

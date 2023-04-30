@@ -36,6 +36,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button[] menuButtons;
 
     [SerializeField] private SceneData startLevelSceneData;
+    [SerializeField] private SceneData tutorialSceneData;
     [SerializeField] private SceneData creditsSceneData;
 
     public CursorMode cursorMode = CursorMode.Auto;
@@ -95,10 +96,18 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame(float _timeToWait)
     {
-        PauseMenu.canPause = true;
         //StartCoroutine(SceneLoader.Instance.LoadAsynchronously(Scenes.Level));
         //SceneLoader.Instance.ActiveLoadingScreen(startLevelSceneData, _timeToWait);
-        SceneLoader.Instance.ChangeScene(startLevelSceneData.sceneToLoad);
+        if(GameManager.Instance == null || GameManager.Instance.firstParty)
+        {
+            SceneLoader.Instance.ChangeScene(tutorialSceneData.sceneToLoad);
+        }
+        else
+        {
+            PauseMenu.canPause = true;
+            SceneLoader.Instance.ChangeScene(startLevelSceneData.sceneToLoad);
+        }
+        
     }
    
     public void Options()

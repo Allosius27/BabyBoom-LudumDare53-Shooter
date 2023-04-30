@@ -4,6 +4,7 @@
     {
         BootScene,
         MainMenu,
+        TutorialScene,
         Level,
         ScoreScene,
         CreditsScene

@@ -43,6 +43,11 @@ public class PlayerCtrl : MonoBehaviour
 
     private void Update()
     {
+        if(GameCore.Instance == null)
+        {
+            return;
+        }
+
         Vector3 mouse = Input.mousePosition;
         Ray castPoint = Camera.main.ScreenPointToRay(mouse);
         RaycastHit hit;

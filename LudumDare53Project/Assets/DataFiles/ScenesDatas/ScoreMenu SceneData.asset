@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbfce2fa37ac1c74f98bec1ccf3c222f, type: 3}
   m_Name: ScoreMenu SceneData
   m_EditorClassIdentifier: 
-  sceneToLoad: 3
+  sceneToLoad: 4
