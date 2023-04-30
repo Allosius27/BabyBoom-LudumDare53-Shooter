@@ -18,6 +18,8 @@ public class Baby : MonoBehaviour
 
     #region Properties
 
+    public Vector3 moveDirection { get; set; }
+
     public Rigidbody Rb => _rb;
 
     public Collider Col => _col;
@@ -44,7 +46,7 @@ public class Baby : MonoBehaviour
 
     [Required] [SerializeField] private Animator _animator;
 
-    [SerializeField] private Vector3 rotationToGround = new Vector3(90, 0, 0);
+    [SerializeField] private Vector3 _rotationToGround = new Vector3(90, 0, 0);
 
     #endregion
 
@@ -85,6 +87,20 @@ public class Baby : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if(isOnGround)
+        {
+            Move();
+        }
+    }
+
+    private void Move()
+    {
+        float moveStep = _babyData.babyMoveSpeed * Time.deltaTime;
+        _rb.velocity = moveDirection * moveStep;
+    }
+
     public void BabyDeath()
     {
         Debug.Log("Baby Death");
@@ -99,9 +115,12 @@ public class Baby : MonoBehaviour
         Entity entity = collision.gameObject.GetComponent<Entity>();
         if(entity != null)
         {
+            moveDirection = new Vector3(GameCore.Instance.GetClosestOutsideWay(transform).position.x - transform.position.x, 0, 0);
+            moveDirection.Normalize();
+
             isOnGround = true;
 
-
+            transform.localEulerAngles = _rotationToGround;
         }
     }
 

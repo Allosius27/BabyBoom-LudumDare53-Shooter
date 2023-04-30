@@ -30,6 +30,8 @@ public class GameCore : Singleton<GameCore>
     
 	[SerializeField] private AudioData _mainMusic;
 
+    [SerializeField] private DeathZone[] outsidesWays;
+
     #endregion
 
     #region Class
@@ -50,6 +52,24 @@ public class GameCore : Singleton<GameCore>
     private void Update()
     {
         UpdateTimer();
+    }
+
+    public Transform GetClosestOutsideWay(Transform target)
+    {
+        float distance = float.MaxValue;
+        Transform closest = outsidesWays[0].transform;
+
+        foreach(var item in outsidesWays)
+        {
+            float dist = Vector3.Distance(target.position, item.transform.position);
+            if(dist < distance)
+            {
+                distance = dist;
+                closest = item.transform;
+            }
+        }
+
+        return closest;
     }
 
     private void UpdateTimer()
