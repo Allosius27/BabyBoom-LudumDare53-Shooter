@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using AllosiusDevCore;
+using static UnityEngine.GraphicsBuffer;
 
 public class GameCanvasManager : Singleton<GameCanvasManager>
 {
@@ -26,6 +27,14 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
     [SerializeField] private TextMeshProUGUI _timerText;
     [SerializeField] private TextMeshProUGUI _savedAmountText;
     [SerializeField] private TextMeshProUGUI _oupsAmountText;
+
+    [Space]
+
+    [SerializeField] private PopUpText _addScorePopUp;
+    [SerializeField] private PopUpText _removeScorePopUp;
+    [SerializeField] private PopUpText _bonusMultiplierScorePopUp;
+
+    [SerializeField] private PopUpImg[] _babyShootPopUps;
 
     #endregion
 
@@ -80,6 +89,48 @@ public class GameCanvasManager : Singleton<GameCanvasManager>
     public void UpdateOupsBabies()
     {
         _oupsAmountText.text = GameManager.Instance.currentOupsBabiesCount.ToString();
+    }
+
+    public void CreateScorePopUp(Transform target, int amount)
+    {
+        PopUpText textToInstantiate = _addScorePopUp;
+        if(amount < 0)
+        {
+            textToInstantiate = _removeScorePopUp;
+        }
+
+        var myNewScore = Instantiate(textToInstantiate);
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(target.position);
+
+
+        myNewScore.transform.SetParent(transform, false);
+        myNewScore.transform.position = screenPosition;
+        myNewScore.GetComponent<PopUpText>().SetPoints(amount);
+    }
+
+    public void CreateMultiplierPopUp(Transform target, float amount)
+    {
+        PopUpText textToInstantiate = _bonusMultiplierScorePopUp;
+
+        var myNewScore = Instantiate(textToInstantiate);
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(target.position);
+
+
+        myNewScore.transform.SetParent(transform, false);
+        myNewScore.transform.position = screenPosition;
+        myNewScore.GetComponent<PopUpText>().SetMultiplier(amount);
+    }
+
+    public void CreateShootBabyPopUp(Transform target)
+    {
+        PopUpImg imgToInstantiate = _babyShootPopUps[AllosiusDevUtilities.Utils.AllosiusDevUtils.RandomGeneration(0, _babyShootPopUps.Length)];
+
+        var myNewScore = Instantiate(imgToInstantiate);
+        Vector2 screenPosition = Camera.main.WorldToScreenPoint(target.position);
+
+
+        myNewScore.transform.SetParent(transform, false);
+        myNewScore.transform.position = screenPosition;
     }
 
     #endregion

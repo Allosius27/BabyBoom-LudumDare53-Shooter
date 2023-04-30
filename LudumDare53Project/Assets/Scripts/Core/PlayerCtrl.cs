@@ -30,6 +30,8 @@ public class PlayerCtrl : MonoBehaviour
 
     [Required] [SerializeField] private Transform _bulletStart;
 
+    [SerializeField] private Transform[] _shootPopupsPoints;
+
     #endregion
 
     #region Behaviour
@@ -131,6 +133,11 @@ public class PlayerCtrl : MonoBehaviour
         if(_currentBaby == null || _canShoot == false)
         {
             return;
+        }
+
+        for (int i = 0; i < _shootPopupsPoints.Length; i++)
+        {
+            GameCanvasManager.Instance.CreateShootBabyPopUp(_shootPopupsPoints[i]);
         }
 
         _currentBaby.Rb.isKinematic = false;

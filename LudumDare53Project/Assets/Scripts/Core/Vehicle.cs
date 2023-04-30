@@ -145,12 +145,16 @@ public class Vehicle : MonoBehaviour
                 baby.transform.localPosition = Vector3.zero;
                 baby.transform.localEulerAngles = Vector3.zero;
 
-                GameManager.Instance.ChangeScore((int)(_vehicleData.scorePointsAdded * GameManager.Instance.currentMultiplier));
+                int scoreAmount = (int)(_vehicleData.scorePointsAdded * GameManager.Instance.currentMultiplier);
+                GameManager.Instance.ChangeScore(scoreAmount);
+                GameCanvasManager.Instance.CreateScorePopUp(transform, scoreAmount);
                 GameManager.Instance.ChangeSavedBabiesCount(1);
             }
             else
             {
-                GameManager.Instance.ChangeScore((int)(_vehicleData.scorePointsAdded));
+                int scoreAmount = (int)(_vehicleData.scorePointsAdded);
+                GameManager.Instance.ChangeScore(scoreAmount);
+                GameCanvasManager.Instance.CreateScorePopUp(transform, scoreAmount);
                 baby.BabyDeath();
             }
 
@@ -159,8 +163,11 @@ public class Vehicle : MonoBehaviour
 
             if(_isFull)
             {
-                GameManager.Instance.ChangeScore((int)(_vehicleData.scorePointsToFull * GameManager.Instance.currentMultiplier));
+                int scoreAmount = (int)(_vehicleData.scorePointsToFull * GameManager.Instance.currentMultiplier);
+                GameManager.Instance.ChangeScore(scoreAmount);
+                GameCanvasManager.Instance.CreateScorePopUp(transform, scoreAmount);
                 GameManager.Instance.ChangeMultiplier(_vehicleData.scoreMultiplierBonusToFull);
+                GameCanvasManager.Instance.CreateMultiplierPopUp(transform, GameManager.Instance.currentMultiplier);
             }
         }
         else
