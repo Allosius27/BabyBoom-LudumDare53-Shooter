@@ -79,26 +79,26 @@ public class Vehicle : MonoBehaviour
         BabySpot spotAvailable = GetAvailableBabySpot();
         if(!_isFull && spotAvailable != null)
         {
-            _currentBabies.Add(baby);
-            spotAvailable.isTaken = true;
-            baby.Rb.velocity = Vector3.zero;
-            baby.Rb.isKinematic = true;
-            baby.Rb.useGravity = false;
-            baby.isShooted = false;
-            baby.Col.enabled = false;
-            baby.transform.SetParent(spotAvailable.transform);
-            baby.transform.localPosition = Vector3.zero;
-            baby.transform.localEulerAngles = Vector3.zero;
-
             if(_vehicleData.scorePointsAdded > 0)
             {
-                GameManager.Instance.ChangeScore((int)(_vehicleData.scorePointsAdded * GameManager.Instance.currentMultiplier));
+                _currentBabies.Add(baby);
+                spotAvailable.isTaken = true;
+                baby.Rb.velocity = Vector3.zero;
+                baby.Rb.isKinematic = true;
+                baby.Rb.useGravity = false;
+                baby.isShooted = false;
+                baby.Col.enabled = false;
+                baby.transform.SetParent(spotAvailable.transform);
+                baby.transform.localPosition = Vector3.zero;
+                baby.transform.localEulerAngles = Vector3.zero;
 
+                GameManager.Instance.ChangeScore((int)(_vehicleData.scorePointsAdded * GameManager.Instance.currentMultiplier));
+                GameManager.Instance.ChangeSavedBabiesCount(1);
             }
             else
             {
                 GameManager.Instance.ChangeScore((int)(_vehicleData.scorePointsAdded));
-
+                baby.BabyDeath();
             }
 
             _isFull = CheckIsFull();

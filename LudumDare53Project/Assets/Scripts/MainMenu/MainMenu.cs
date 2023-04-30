@@ -36,6 +36,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Button[] menuButtons;
 
     [SerializeField] private SceneData startLevelSceneData;
+    [SerializeField] private SceneData creditsSceneData;
 
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.zero;
@@ -106,6 +107,11 @@ public class MainMenu : MonoBehaviour
         SettingsMenu.LaunchSettings();
         activesButtons = false;
         activeSettings = true;
+    }
+
+    public void Credits()
+    {
+        SceneLoader.Instance.ChangeScene(creditsSceneData.sceneToLoad);
     }
 
     public void Exit()

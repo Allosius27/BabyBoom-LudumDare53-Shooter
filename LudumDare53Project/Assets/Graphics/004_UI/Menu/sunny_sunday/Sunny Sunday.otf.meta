@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: fed698055dbd4ea4bac6a21b3a0ddef3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Sunny Sunday
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: bc090fd4491418e4a825c92293573924, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

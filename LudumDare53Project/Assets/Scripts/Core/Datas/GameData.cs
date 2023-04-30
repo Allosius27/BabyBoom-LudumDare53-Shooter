@@ -1,3 +1,4 @@
+using AllosiusDevCore;
 using Sirenix.OdinInspector;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +22,10 @@ public class GameData : SerializedScriptableObject
     #region UnityInspector
 
     [SerializeField] public int partyDuration;
+
+    [SerializeField] public SceneData endGameScene;
+
+    [SerializeField] public FeedbacksData endGameFeedbacks;
 
     #endregion
 

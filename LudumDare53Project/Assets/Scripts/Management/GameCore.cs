@@ -4,9 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(FeedbacksReader))]
 public class GameCore : Singleton<GameCore>
 {
     #region Fields
+
+    private bool _gameEnded;
+
+    private FeedbacksReader _feedbaksReader;
 
     #endregion
 
@@ -32,6 +37,8 @@ public class GameCore : Singleton<GameCore>
 
     private void Start()
     {
+        _feedbaksReader = GetComponent<FeedbacksReader>();
+
         GameManager.Instance.ResetGame(_gameData);
     }
 
@@ -46,7 +53,23 @@ public class GameCore : Singleton<GameCore>
         {
             GameManager.Instance.ChangeTimer(-Time.deltaTime);
         }
-        
+        else
+        {
+            if(_gameEnded == false)
+            {
+                EndGame();
+            }
+        }
+
+    }
+
+    private void EndGame()
+    {
+        _gameEnded = true;
+
+        _feedbaksReader.ReadFeedback(_gameData.endGameFeedbacks);
+
+        SceneLoader.Instance.ChangeScene(_gameData.endGameScene.sceneToLoad);
 
     }
 
