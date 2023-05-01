@@ -23,8 +23,8 @@ MonoBehaviour:
     SerializationNodes: []
   shootingCooldownTime: 0.25
   babyPrefab: {fileID: 4110570976354494647, guid: 75fc5f37f8c27f24db6d4c0fa6a3ed20, type: 3}
-  launchBabySoundCooldown: 1
-  BabySoundCooldown: 3
+  launchBabySoundCooldown: 2.5
+  BabySoundCooldown: 4
   ShootAudio:
   - {fileID: 11400000, guid: f72e0c0f1488c9540a0068a7a9e57fab, type: 2}
   - {fileID: 11400000, guid: 6bfa768d7b260cd4a892317a977f35e7, type: 2}
