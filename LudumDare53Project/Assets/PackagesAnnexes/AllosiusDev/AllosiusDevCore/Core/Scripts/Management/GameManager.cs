@@ -54,6 +54,12 @@ namespace AllosiusDevCore
             SetTimer(gameData.partyDuration);
             SetSavedBabiesCount(0);
             SetOupsBabiesCount(0);
+
+            GameCanvasManager.Instance.UpdateScore();
+            GameCanvasManager.Instance.UpdateMultiplier();
+            GameCanvasManager.Instance.UpdateTimer();
+            GameCanvasManager.Instance.UpdateSavedBabies();
+            GameCanvasManager.Instance.UpdateOupsBabies();
         }
 
         public void ChangeScore(int amount)
